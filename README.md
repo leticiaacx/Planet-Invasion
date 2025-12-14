@@ -37,10 +37,6 @@ Preparação dos Arquivos: Salve o código principal do jogo (ex: game.py) e gar
 Execução:
 
     Mu Editor (Recomendado): Abra o arquivo do jogo no Mu Editor no modo Pygame Zero e clique no botão "Play" (Reproduzir).
-
-    Linha de Comando: Execute o jogo usando o comando pgzrun:
-    Bash
-
         pgzrun game.py
 
 🕹️ Controles
