@@ -10,7 +10,7 @@ Os recursos gráficos (sprites, tiles e fundos) utilizados neste projeto são pr
 
 🎮 Gênero
 
-Platformer (Plataforma) - Jogo de visão lateral focado em pular entre plataformas, evitar obstáculos e derrotar inimigos, sendo um dos gêneros explicitamente permitidos nos requisitos do projeto.
+Platformer (Plataforma) - Jogo de visão lateral focado em pular entre plataformas, evitar obstáculos e derrotar inimigos.
 
 ✨ Requisitos Mínimos e Tecnologias
 
@@ -20,7 +20,7 @@ O projeto foi desenvolvido estritamente seguindo as regras do ambiente PgZero e 
 
     Ambiente de Desenvolvimento Recomendado: Mu Editor (Modo Pygame Zero)
 
-    Biblioteca Principal: PgZero (requer Pygame subjacente)
+    Biblioteca Principal: PgZero
 
     Módulos Permitidos: PgZero, math, random.
 
@@ -28,88 +28,73 @@ O projeto foi desenvolvido estritamente seguindo as regras do ambiente PgZero e 
 
 🚀 Como Jogar
 
-Instalação de Dependências: Certifique-se de ter o Python instalado. Instale o pgzero e o Pygame (que é uma dependência subjacente):
+Instalação de Dependências: Certifique-se de ter o Python instalado. Instale o pgzero:
 
     pip install pgzero
 
-Preparação dos Arquivos: Salve o código principal do jogo (ex: game.py) e garanta que todas as pastas de recursos (sprites em images, sons em sounds, música em music) estejam localizadas na mesma pasta.
+Preparação dos Arquivos: Salve o código principal do jogo (ex: game.py) e garanta que todas as pastas de recursos (sprites em images, sons em sounds, música em music) estejam localizadas na mesma pasta, conforme a estrutura padrão do PgZero.
 
 Execução:
 
-    Mu Editor (Recomendado): O projeto foi desenvolvido e é idealmente executado no Mu Editor no modo Pygame Zero. Basta abrir o arquivo do jogo e clicar no botão "Play" (Reproduzir).
+    Mu Editor (Recomendado): Abra o arquivo do jogo no Mu Editor no modo Pygame Zero e clique no botão "Play" (Reproduzir).
 
-    Linha de Comando: Alternativamente, execute o jogo usando o comando pgzrun:
+    Linha de Comando: Execute o jogo usando o comando pgzrun:
     Bash
 
         pgzrun game.py
 
-🕹️ Controles:
-Ação	Tecla
-Mover Esquerda	Seta Esquerda (←)
-Mover Direita	Seta Direita (→)
-Pular	Barra de Espaço (SPACE)
-Voltar ao Menu	Enter (RETURN) (nas telas de Fim de Jogo/Vitória)
-📋 Funcionalidades Implementadas:
-Estrutura e Gerenciamento do Jogo
+🕹️ Controles
 
-    Menu Principal: Implementação completa do menu inicial (estado "MENU") com os seguintes botões funcionais:
+    Ação	Tecla
+    Mover Esquerda	Seta Esquerda (←)
+    Mover Direita	Seta Direita (→)
+    Pular	Barra de Espaço (SPACE)
+    Voltar ao Menu	Enter (RETURN) (nas telas de Fim de Jogo/Vitória)
 
-        INICIAR JOGO
+📋 Funcionalidades Implementadas
 
-        SOM: LIGADO/DESLIGADO (Alterna a reprodução da música de fundo e sons via music.play() e music.stop()).
+    Estrutura e Gerenciamento do Jogo
 
-        SAIR (Finaliza o programa via raise SystemExit).
+    Menu Principal: Tela inicial completa com botões INICIAR JOGO, SOM: LIGADO/DESLIGADO e SAIR.
 
-    Progressão de Fases: O jogo possui 4 fases (TOTAL_STAGES). O jogador avança usando a função advance_stage() ao colidir com o goal.
+    Progressão de Fases: 4 fases distintas (Fase 1 a Fase 4) com layouts crescentes em dificuldade.
 
-    Sistema de Vidas e Pontuação: O herói começa com 5 vidas (MAX_LIVES). Perder todas as vidas leva ao estado GAME_OVER. Pontos são adicionados a cada fase concluída.
+    Sistema de Vidas e Pontuação: Gerenciamento de 5 vidas; pontuação é concedida a cada fase concluída.
 
-    Telas Finais: Telas dedicadas para os estados WINNER e GAME_OVER, permitindo o retorno ao menu via tecla ENTER.
+    Telas Finais: Telas GAME_OVER e WINNER com estética de pixel art e retorno ao menu.
 
-Personagens e Mecânicas de Platformer:
+Personagens e Mecânicas de Platformer
 
     Classe Hero:
 
-        Gerencia a posição e velocidade (vx, vy) do herói.
+        Implementa física básica: gravidade (apply_gravity()) e movimento horizontal.
 
-        Aplica a física de gravidade (apply_gravity()) e permite o salto (jump()) se o herói estiver sobre uma plataforma.
+        Lógica de salto com verificação de plataforma.
 
-        Inclui verificação de morte por queda (se hero.actor.top > HEIGHT).
+        Animações de sprite para parado (idle), andando e estado no ar.
 
-    Classes Enemy e StaticEnemy:
+    Inimigos (Classes e Tipos):
 
-        Enemy (Móvel): Implementa movimento horizontal e patrulha dentro de um patrol_range definido, representando o "território" dos inimigos. (Ex: Slimefire, Bee, Mouse).
+        Enemy (Patrulha): Inimigos que se movem horizontalmente dentro de um território definido (patrol_range). (Ex: Slimefire, Bee).
 
-        StaticEnemy (Estático): Representa ameaças fixas que dependem apenas de animação. (Ex: Barnacle).
+        StaticEnemy (Estático): Inimigos fixos com animação contínua (Ex: Barnacle).
 
-    Colisão: Funções dedicadas (collision_platform_x, collision_platform_y) para lidar com a interação do herói com as plataformas, prevenindo a passagem e ajustando o vy ao pousar.
+        JumpingFrog (Salto): Novo inimigo que utiliza um timer para iniciar saltos em uma direção, patrulhando seu território de forma intermitente.
 
-Animação de Sprite e Conformidade:
+    Colisão: Detecção de colisão precisa nos eixos X e Y contra plataformas e detecção de toque com todos os tipos de inimigos, resultando em perda de vida.
 
-    Animação do Herói: A função Hero.animate() controla a troca de frames usando HERO_IDLE_SPEED e HERO_WALK_SPEED, garantindo animações para o estado parado (hero_idle_images, 18 frames) e o estado movendo-se (hero_walk_right/left_images, 2 frames).
+Animação de Sprite e Conformidade Técnica
 
-    Animação de Inimigos: Inimigos móveis e estáticos possuem animações de sprite que mudam continuamente e ciclicamente.
+    Animação de Múltiplos Frames: O herói usa 18 frames para a animação idle, garantindo um movimento sutil e cíclico mesmo parado.
 
-        Exemplo: Barnacles estáticos são animados via clock.schedule_interval(animate_barnacles, ...) com uma taxa de ataque.
+    Nomenclatura PEP8: Consistência no uso de nomes em inglês e convenções de estilo de código.
 
-    Nomenclatura PEP8: Todas as classes, variáveis e funções usam nomes claros e descritivos em inglês, seguindo as convenções (PascalCase para classes, snake_case para funções/variáveis).
+📐 Estrutura do Código
 
-📐 Estrutura do Código:
+    Constantes: Definições de tamanho, física e velocidade.
 
-O arquivo de código é estruturado para clareza:
+    Classes de Personagens: Implementação da lógica de jogo e animação para Hero, Enemy, StaticEnemy e JumpingFrog.
 
-    Constantes: Parâmetros de jogo, física, animação, e definições de botões do menu.
+    Lógica de Fases: Funções (load_stageX) para construir o mundo e posicionar os elementos.
 
-    Preparação de Assets: Funções para carregar e listar frames de animação.
-
-    Classes: Definição de Hero, Enemy e StaticEnemy.
-
-    Criação de Fases (load_stageX): Lógica para construir o layout do mapa, plataformas e posicionamento de inimigos para cada uma das 4 fases.
-
-    Gerenciamento de Jogo: Funções advance_stage, reset_game, lose_life.
-
-    Funções de Colisão: Lógica de collision_platform_x e collision_platform_y.
-
-    Agendamento de Animações: Uso do clock.schedule_interval para animar inimigos estáticos e o objetivo.
-
-    Loop Principal (PgZero): Funções principais do framework: draw(), update(), on_mouse_down(), e on_key_down().
+    Loop Principal (PgZero): Funções draw(), update(), on_mouse_down(), e on_key_down() que gerenciam o fluxo de jogo e a renderização.
