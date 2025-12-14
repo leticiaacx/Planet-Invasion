@@ -11,6 +11,7 @@ Os recursos gráficos (sprites, tiles e fundos) utilizados neste projeto são pr
 🎮 Gênero
 
 Platformer (Plataforma) - Jogo de visão lateral focado em pular entre plataformas, evitar obstáculos e derrotar inimigos, sendo um dos gêneros explicitamente permitidos nos requisitos do projeto.
+
 ✨ Requisitos Mínimos e Tecnologias
 
 O projeto foi desenvolvido estritamente seguindo as regras do ambiente PgZero e o conjunto limitado de bibliotecas permitidas.
