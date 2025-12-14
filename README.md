@@ -2,7 +2,14 @@
 
 Planet Invasion é um jogo de plataforma 2D desenvolvido em Python utilizando a biblioteca PgZero. O jogador controla um herói espacial em uma missão para atravessar planetas perigosos cheios de armadilhas e criaturas hostis.
 
-🎮 Gênero:
+🎨 Recursos Gráficos (Assets)
+
+Os recursos gráficos (sprites, tiles e fundos) utilizados neste projeto são provenientes do New Platformer Pack criado por Kenney.
+
+    Fonte do Pack: https://kenney.nl/assets/new-platformer-pack
+
+🎮 Gênero
+
 Platformer (Plataforma) - Jogo de visão lateral focado em pular entre plataformas, evitar obstáculos e derrotar inimigos, sendo um dos gêneros explicitamente permitidos nos requisitos do projeto.
 ✨ Requisitos Mínimos e Tecnologias
 
