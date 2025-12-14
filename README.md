@@ -31,7 +31,7 @@ O projeto foi desenvolvido estritamente seguindo as regras do ambiente PgZero e 
     Instalação de Dependências: Certifique-se de ter o Python instalado. Instale o pgzero e o Pygame (que é uma dependência subjacente):
     Bash
 
-pip install pgzero
+    pip install pgzero
 
 Preparação dos Arquivos: Salve o código principal do jogo (ex: game.py) e garanta que todas as pastas de recursos (sprites em images, sons em sounds, música em music) estejam localizadas na mesma pasta.
 
