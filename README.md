@@ -2,7 +2,7 @@
 
 Planet Invasion é um jogo de plataforma 2D desenvolvido em Python utilizando a biblioteca PgZero. O jogador controla um herói espacial em uma missão para atravessar planetas perigosos cheios de armadilhas e criaturas hostis.
 
-🎮 Gênero
+🎮 Gênero:
 Platformer (Plataforma) - Jogo de visão lateral focado em pular entre plataformas, evitar obstáculos e derrotar inimigos, sendo um dos gêneros explicitamente permitidos nos requisitos do projeto.
 ✨ Requisitos Mínimos e Tecnologias
 
@@ -36,13 +36,13 @@ Execução:
 
         pgzrun game.py
 
-🕹️ Controles
+🕹️ Controles:
 Ação	Tecla
 Mover Esquerda	Seta Esquerda (←)
 Mover Direita	Seta Direita (→)
 Pular	Barra de Espaço (SPACE)
 Voltar ao Menu	Enter (RETURN) (nas telas de Fim de Jogo/Vitória)
-📋 Funcionalidades Implementadas
+📋 Funcionalidades Implementadas:
 Estrutura e Gerenciamento do Jogo
 
     Menu Principal: Implementação completa do menu inicial (estado "MENU") com os seguintes botões funcionais:
@@ -59,7 +59,7 @@ Estrutura e Gerenciamento do Jogo
 
     Telas Finais: Telas dedicadas para os estados WINNER e GAME_OVER, permitindo o retorno ao menu via tecla ENTER.
 
-Personagens e Mecânicas de Platformer
+Personagens e Mecânicas de Platformer:
 
     Classe Hero:
 
@@ -77,7 +77,7 @@ Personagens e Mecânicas de Platformer
 
     Colisão: Funções dedicadas (collision_platform_x, collision_platform_y) para lidar com a interação do herói com as plataformas, prevenindo a passagem e ajustando o vy ao pousar.
 
-Animação de Sprite e Conformidade
+Animação de Sprite e Conformidade:
 
     Animação do Herói: A função Hero.animate() controla a troca de frames usando HERO_IDLE_SPEED e HERO_WALK_SPEED, garantindo animações para o estado parado (hero_idle_images, 18 frames) e o estado movendo-se (hero_walk_right/left_images, 2 frames).
 
@@ -87,7 +87,7 @@ Animação de Sprite e Conformidade
 
     Nomenclatura PEP8: Todas as classes, variáveis e funções usam nomes claros e descritivos em inglês, seguindo as convenções (PascalCase para classes, snake_case para funções/variáveis).
 
-📐 Estrutura do Código
+📐 Estrutura do Código:
 
 O arquivo de código é estruturado para clareza:
 
