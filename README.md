@@ -28,8 +28,7 @@ O projeto foi desenvolvido estritamente seguindo as regras do ambiente PgZero e 
 
 🚀 Como Jogar
 
-    Instalação de Dependências: Certifique-se de ter o Python instalado. Instale o pgzero e o Pygame (que é uma dependência subjacente):
-    Bash
+Instalação de Dependências: Certifique-se de ter o Python instalado. Instale o pgzero e o Pygame (que é uma dependência subjacente):
 
     pip install pgzero
 
